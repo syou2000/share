@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use Storage;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -16,7 +18,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-
         return view('post/index', compact('posts'));
     }
 
@@ -25,9 +26,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    
+    public function create(Request $request)
     {
-        //
+        if ($request->isMethod('POST')) {
+
+            $path = $request->file('image')->store('public/image');
+
+            Post::create(['file_name' => basename($path)]);
+
+            return redirect('/')->with(['success'=> 'ファイルを保存しました']);
+        }
+        // GET
+        return view('post.create');
     }
 
     /**
@@ -38,8 +49,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $path = $request->file('image')->store('public/image');
+        Model::insert([
+            "image" => $path
+           ]);
+        $post->save();
     }
+
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+            'file' => [
+                // 必須
+                'required',
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
+        ]);
+
+        if ($request->file('file')->isValid([])) {
+            $path = $request->file->store('public');
+            return view('home')->with('filename', basename($path));
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors();
+        }
+    }
+
 
     /**
      * Display the specified resource.
