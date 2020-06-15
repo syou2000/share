@@ -29,14 +29,20 @@ class PostController extends Controller
     
     public function create(Request $request)
     {
-        if ($request->isMethod('POST')) {
+        // if ($request->isMethod('POST')) {
 
-            $path = $request->file('image')->store('public/image');
+        //     $path = $request->file('image')->store('public/image');
 
-            Post::create(['file_name' => basename($path)]);
+        //     // Model::insert([
+        //     //     "image" => $path
+        //     // ]);
 
-            return redirect('/')->with(['success'=> 'ファイルを保存しました']);
-        }
+        //     Post::create(['image' => basename($path)]);
+
+
+        //     return redirect('/');
+
+        // }
         // GET
         return view('post.create');
     }
@@ -49,38 +55,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post();
-        $path = $request->file('image')->store('public/image');
-        Model::insert([
-            "image" => $path
-           ]);
-        $post->save();
+        // $post = new Post();
+        // $path = $request->file('image')->store('public/image');
+        // Model::insert([
+        //     "image" => $path
+        //    ]);
+        // $post->save();
     }
 
     public function upload(Request $request)
     {
         $this->validate($request, [
             'file' => [
-                // 必須
                 'required',
-                // アップロードされたファイルであること
                 'file',
-                // 画像ファイルであること
                 'image',
-                // MIMEタイプを指定
                 'mimes:jpeg,png',
             ]
         ]);
 
         if ($request->file('file')->isValid([])) {
             $path = $request->file->store('public');
-            return view('home')->with('filename', basename($path));
+            Post::create(['image' => basename($path)]);
+
+            return view('post/index')->with('filename', basename($path));
         } else {
             return redirect()
                 ->back()
                 ->withInput()
                 ->withErrors();
         }
+
+        Model::insert([
+            "image" => $path
+        ]);
     }
 
 

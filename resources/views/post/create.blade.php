@@ -12,7 +12,7 @@
       <div class="view_box">
         <input type="file" class="file" name="file">
         {{ csrf_field() }}
-        <button class="btn btn-success"> Upload </button>
+        <button type="submit" class="btn btn-success"> 投稿 </button>
       </div>
     </form>
   </body>
