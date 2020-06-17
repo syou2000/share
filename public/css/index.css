@@ -1,0 +1,65 @@
+.main{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.content{
+  margin: 90px 232px 0;
+}
+
+.ops-title{
+  line-height: 60px;
+  margin: 0 0 0 130px;
+}
+
+.image{
+  margin: 12px 12px;
+}
+
+.navbar-light .navbar-brand{
+  margin-left: 80px;
+  font-size: 30px;
+}
+
+.nav-link.dropdown-toggle{
+  margin-right: 105px;
+}
+
+.navbar.navbar-expand-md.navbar-light.bg-white.shadow-sm{
+  height: 70px;
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.fas.fa-camera{
+  font-size: 60px;
+  color: rgb(110, 187, 212);
+  position: absolute;
+  right: 100px;
+  bottom: 80px;
+  position: fixed;
+  cursor: pointer;  
+}
+
+.fas.fa-camera:hover{
+  opacity: 0.5;
+}
+
+.file{
+  display: none;
+}
+
+#modal-content{
+  margin-top: 100px;
+  margin-left: 72px;
+  height: 420px;
+  width: 340px;
+}
+
+.btn.btn-primary.mb-12{
+  display: none;
+}

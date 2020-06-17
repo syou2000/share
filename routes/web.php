@@ -12,20 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('post', 'PostController')->middleware('auth');
+Route::post('/upload', 'PostController@upload');
 
 Route::get('/', function () {
-    return view('welcome');
-    // if ( Auth::check() )
-    // {
-    //     return view('post/index');
-    //     // Route::get('/', 'PostController@index');
-    // } else{
+    if ( Auth::check() )
+    {
+        return view('post.index');
+    } else{
         return view('welcome');
-    // }
+    }
 });
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('post', 'PostController@index');
-Route::resource('post', 'PostController');
-Route::post('/upload', 'PostController@upload');
+// Route::get('/', 'Postcontroller@index')if (Auth::check());

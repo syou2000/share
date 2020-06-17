@@ -15,11 +15,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'DESC')->get();
         return view('post/index', compact('posts'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,25 +30,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function create(Request $request)
-    {
-        // if ($request->isMethod('POST')) {
-
-        //     $path = $request->file('image')->store('public/image');
-
-        //     // Model::insert([
-        //     //     "image" => $path
-        //     // ]);
-
-        //     Post::create(['image' => basename($path)]);
-
-
-        //     return redirect('/');
-
-        // }
-        // GET
-        return view('post.create');
-    }
+    // public function create(Request $request)
+    // {
+    //     return view('post.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -77,8 +65,7 @@ class PostController extends Controller
         if ($request->file('file')->isValid([])) {
             $path = $request->file->store('public');
             Post::create(['image' => basename($path)]);
-
-            return view('post/index')->with('filename', basename($path));
+            return redirect('post')->with('filename', basename($path));
         } else {
             return redirect()
                 ->back()
