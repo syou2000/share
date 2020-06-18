@@ -18,12 +18,14 @@ Route::resource('post', 'PostController')->middleware('auth');
 Route::post('/upload', 'PostController@upload');
 
 Route::get('/', function () {
-    if ( Auth::check() )
-    {
-        return view('post.index');
-    } else{
-        return view('welcome');
-    }
+    return view('welcome');
 });
 
-// Route::get('/', 'Postcontroller@index')if (Auth::check());
+// Route::get('/', function () {
+//     if ( Auth::check() )
+//     {
+//         return view('post.index');
+//     } else{
+//         return view('welcome');
+//     }
+// });
