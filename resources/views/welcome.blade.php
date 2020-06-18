@@ -7,14 +7,14 @@
 <body>
   <div class="container ops-main">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-sm-12 header">
         <h1 class="ops-title">Share</h1>
         <div class="loginspace">
           <a href="/login">ログイン</a>
           <a href="/register">新規登録</a>
         </div>
       </div>
-      <div class="main">
+      <div class="main col-sm-6">
         <h3 class="message">あなたの<span>瞬間</span>をシェアしませんか?</h3>
       </div>
     </div>

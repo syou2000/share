@@ -2,9 +2,10 @@
   height: 70px;
 }
 
-.navbar-brand{
+.navbar-light .navbar-brand{
   font-size: 50px;
   font-family: 'Work Sans', sans-serif;
+  color: gray;
 }
 
 .nav-link{
