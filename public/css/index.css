@@ -63,3 +63,7 @@
 .btn.btn-primary.mb-12{
   display: none;
 }
+
+.postimage{
+  cursor: pointer;
+}
