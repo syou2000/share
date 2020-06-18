@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('post', 'PostController')->middleware('auth');
+Route::resource('post', 'PostController')->middleware('auth')->middleware('guest');
 Route::post('/upload', 'PostController@upload');
+
+Route::get('login/{provider}',          'Auth\SocialAccountController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\SocialAccountController@handleProviderCallback');
 
 Route::get('/', function () {
     return view('welcome');

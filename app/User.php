@@ -42,4 +42,8 @@ class User extends Authenticatable
     {
         $this->notify(new CustomResetPassword($token));
     }
+
+    public function accounts(){
+        return $this->hasMany('App\LinkedSocialAccount');
+    }
 }
