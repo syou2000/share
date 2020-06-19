@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-@extends('layouts.app')
+<!-- @extends('layouts.nav') -->
 
 <div class = "main">
   <div class = "content">

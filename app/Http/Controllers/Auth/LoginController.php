@@ -19,6 +19,8 @@ class LoginController extends Controller
     |
     */
 
+
+
     use AuthenticatesUsers;
 
     /**
@@ -42,4 +44,6 @@ class LoginController extends Controller
     {
         return '/post';
     }
+
+    
 }
