@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<!-- @extends('layouts.nav') -->
+@extends('layouts.nav')
 
 <div class = "main">
   <div class = "content">
@@ -18,7 +18,6 @@
         <i class = "fas fa-camera"></i>
       </label>
       {{ csrf_field() }}
-      <!-- <button type="submit" class="btn btn-success"> 投稿 </button> -->
       <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <script src="{{ asset('/js/image.js') }}"></script>
         <div class="modal-dialog">
