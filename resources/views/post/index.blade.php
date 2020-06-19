@@ -25,7 +25,7 @@
             <div id = "modal-content" class="modal-content">
                 <div id = "modal-body" class="modal-body">
                   <label>
-                    <img src = "images/photo.png" width=302px height=308px>
+                    <img class = "postimage" src = "images/photo.png" width=302px height=308px>
                     <input type="file" class="file" name="file">
                   </label>
                 </div>
