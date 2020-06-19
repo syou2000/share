@@ -13,5 +13,47 @@
 }
 
 #github_btn{
-  margin-left: 90px;
+  margin-left: 20px;
+}
+
+.nav-link{
+  font-size: 18px;
+}
+
+.login_btn_github_btn{
+  display: flex;
+}
+
+@media (max-width: 767.98px) {
+  .navbar-light .navbar-brand {
+    font-size: 2.0rem;
+  }
+ }
+ @media (max-width: 575.98px) {
+  .navbar-light .navbar-brand {
+    font-size: 1.5rem;
+  }
+ }
+
+ @media (max-width: 767.98px) {
+  .navbar-nav.ml-auto{
+    position: relative;
+    width: 80px;
+    z-index: 2;
+  }
+ }
+
+@media (max-width: 575.98px) {
+  .navbar-nav.ml-auto{
+    right: 10px;
+    width: 80px;
+    z-index: 2;
+    position: fixed;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .card{
+    z-index: 1;
+  }
 }

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 <div class="container">
@@ -62,11 +63,11 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                                <a href="/login/github"  class="btn btn-primary" id = "github_btn">Log in with Github</a>
+                            <div class="col-md-6 offset-md-4 login_btn_github_btn">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </button>
+                                    <a href="/login/github"  class="btn btn-primary" id = "github_btn">Githubでログイン</a>
                             </div>
                         </div>
                     </form>
