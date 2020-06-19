@@ -64,7 +64,7 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                        <a href="/login/github"  class="btn btn-default btn-md">Log in with Github</a>
+                                    <a href="/login/github"  class="btn btn-primary">Log in with Github</a>
                             </div>
                         </div>
                     </form>
