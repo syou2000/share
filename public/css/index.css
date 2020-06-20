@@ -260,3 +260,9 @@
     bottom: 10px;
   }
  }
+
+ @media (max-width: 450px) {
+  .navbar-light .navbar-brand {
+    margin-left: 20px;
+  }
+ }
