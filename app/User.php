@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function accounts(){
         return $this->hasMany('App\LinkedSocialAccount');
     }
+
+    public function posts(){
+        return $this->hasMany('App\Post');
+    }
+
 }

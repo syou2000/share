@@ -20,6 +20,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'DESC')->get();
+        
         return view('post/index', compact('posts'));
     }
 
@@ -64,7 +65,10 @@ class PostController extends Controller
 
         if ($request->file('file')->isValid([])) {
             $path = $request->file->store('public');
-            Post::create(['image' => basename($path)]);
+            Post::create([
+                'image' => basename($path),
+                'user_id' => auth()->user()->id
+            ]);
             return redirect('post')->with('filename', basename($path));
         } else {
             return redirect()
@@ -78,6 +82,7 @@ class PostController extends Controller
         ]);
     }
 
+    
 
     /**
      * Display the specified resource.
@@ -108,9 +113,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->image = $request->image;
+        $post->save();
+
+        return redirect("/post");
     }
 
     /**
@@ -121,6 +131,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect("/user");
     }
+
 }
