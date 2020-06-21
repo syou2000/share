@@ -103,13 +103,13 @@
   }
  }
 
- @media (max-width: 1240px) {
+ @media (max-width: 1260px) {
   .content {
     margin: 90px 180px 0;
   }
  }
 
- @media (max-width: 1240px) {
+ @media (max-width: 1260px) {
   .image {
     width: 240px;
     height: 240px;
