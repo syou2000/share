@@ -2,7 +2,11 @@
   <title>Share</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500&family=Lobster&family=Pacifico&family=Parisienne&family=Work+Sans:wght@100;200&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+  @if(app('env') == 'production')
+      <link href="{{ secure_asset('css/welcome.css') }}" rel="stylesheet">
+  @else
+      <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+  @endif
 </head>
 <body>
   <div class="container ops-main">

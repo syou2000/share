@@ -1,4 +1,8 @@
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+@if(app('env') == 'production')
+    <link href="{{ secure_asset('css/index.css') }}" rel="stylesheet">
+@else
+    <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+@endif
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 @extends('layouts.nav')
